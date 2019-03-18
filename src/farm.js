@@ -43,12 +43,15 @@ export class Farm {
   animalFed(amount) {
     this.food -= amount;
   }
+  removeSpan(nth) {
+    $("span:nth-child(" + nth + ")");
+  }
   addAnimal(animal) {
     this.animal.push(animal);
   }
   removeAnimal(i) {
     this.animal.splice(i, 1);
-    this.foodRate +=1;
+    this.food +=10;
   }
   randomEvent() {
     let randomNumber = Math.Floor(Math.random() * 100);
@@ -73,7 +76,7 @@ export class Farm {
     return (feeder(food));
   }
   horseMaker(i) {
-    let horse = new Animal("Horse" + i, 40);
+    let horse = new Animal("Horse" + i, 10);
     this.addAnimal(horse);
     this.animal[i].setHunger();
     this.foodRate += 2;

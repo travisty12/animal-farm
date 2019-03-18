@@ -50,11 +50,11 @@ $(document).ready(function() {
     }
   });
   $("#skull").click(function() {
-    for (let i = 0; i < farm.hungry.length; i++) {
-      if (farm.hungry[i]) {
-        console.log(farm.hungry);
-        farm.removeAnimal(i);
-        i--;
+    for (let j = 0; j < farm.animal.length; j++) {
+      if (farm.hungry[j]) {
+        farm.removeSpan(j);
+        farm.removeAnimal(j);
+        // j--;
         $("#skull").hide();
       }
     }
