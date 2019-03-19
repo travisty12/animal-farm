@@ -13,19 +13,45 @@
     </div> -->
     <div id="game">
       <h1 id="title">Animal Farm</h1>
-      <div class="counter">
-        <h1>Food Stockpile: <span id="foodPile"></span> (<span id="foodRate"></span> per second)</h1>
-        <h1>Horses: <span id="horseNum"></span></h1>
-        <h1 id="hungerBox">Horse hunger: <span id="hungerHolder"></span></h1>
+      <div class="horsescounter">
+        <h1>Food Stockpile: <span class="animalInfo" id="foodPile"></span> (<span id="foodRate"></span> per second)</h1>
+        <h1>Horses: <span class="animalInfo" id="horseNum"></span></h1>
+        <h1 class="animalInfo" id="hungerBox">Horse Hunger: <span id="hungerHolder"></span></h1>
       </div>
-      <div class="buttonHome">
-        <button type="button" id="collect"><img src="./assets/img/food.png" alt=""></button>
-        <button type="button" id="create"><img src="./assets/img/horse.png" alt=""></button>
-        <button type="button" id="feed"><img src="./assets/img/hunger.png" alt=""></button>
-        <button type="button" id="skull"><img src="./assets/img/skull.png" alt=""></button>
+      <div class="buttonHorses">
+        <button type="button" class="buttons" id="collect"><img src="./assets/img/food.png" alt=""></button>
+        <button type="button" class="buttons" id="create"><img src="./assets/img/horse.png" alt=""></button>
+        <button type="button" class="buttons" id="feed"><img src="./assets/img/hunger.png" alt=""></button>
+        <button type="button" class="buttons" id="skull"><img src="./assets/img/skull.png" alt=""></button>
       </div>
       <div class="output">
       </div>
+      <div class="pigcounter">
+        <h1>Pigs: <span class="animalInfo" id="pigNum"></span></h1>
+        <h1>Truffles Stockpile: <span id="truffles"></span> (<span id="trufflesRate"></span> per second)</h1>
+      </div>
+      <div class="buttonPig">
+        <button type="button" class="buttons" id="newPig"><img src="./assets/img/pig.png"></button>
+      </div>
+
+      <div class="chickencounter">
+        <h1 class="animalInfo">Chicken: <span id="chickenNum"></span></h1>
+        <h1 class="animalInfo">Egg Stockpile: <span class="animalInfo" id="eggs"></span> (<span id="eggsRate"></span> per second)</h1>
+      </div>
+      <div class="buttonChicken">
+        <button type="button" class="buttons" id="newChicken"><img src="./assets/img/chicken.png"></button>
+      </div>
+
+      <div class="sheepscounter">
+        <h1 class="animalInfo">Sheep: <span id="sheepsNum"></span></h1>
+        <h1 class="animalInfo">Wool Stockpile: <span class="animalInfo" id="wool"></span> (<span id="woolRate"></span> per second)</h1>
+      </div>
+      <div class="buttonSheeps">
+        <button type="button" class="buttons" id="newSheeps"><img src="./assets/img/chicken.png"></button>
+        <!-- <button type="button" class="buttons" id="feedSheeps"><img src="./assets/img/hunger.png" alt=""></button> -->
+      </div>
+
+
     </div>
   </body>
 </html>
