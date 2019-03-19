@@ -31,13 +31,13 @@ $(document).ready(function() {
   $("#collect").click(function() {
     farm.food++;
   });
-  let i = 0;
+  let z = 0;
   $("#create").click(function() {
-    if (farm.food >= 20 * (i + 1)) {
-      farm.horseMaker(i);
-      farm.food -= (i + 1) * 20;
-      $("#hungerBox").append("<span id='horse" + i + "Hunger'></span> ");
-      i++;
+    if (farm.food >= 1 * (z + 1)) {
+      farm.horseMaker(z, 10);
+      farm.food -= (z + 1) * 1;
+      $("#hungerHolder").append("<span id='horse" + z + "Hunger'></span> ");
+      z++;
     }
   });
   $("#feed").click(function() {
@@ -50,13 +50,31 @@ $(document).ready(function() {
     }
   });
   $("#skull").click(function() {
-    for (let j = 0; j < farm.animal.length; j++) {
+    for (let j = farm.animal.length - 1; j >= 0; j--) {
       if (farm.hungry[j]) {
-        farm.removeSpan(j);
         farm.removeAnimal(j);
-        // j--;
+        z--;
         $("#skull").hide();
       }
+    }
+    $("#hungerHolder").html("");
+    let newHunger = [];
+    for (let y = farm.animal.length - 1; y >= 0; y--) {
+      let hunger = farm.animal[y].hunger;
+      newHunger[y] = hunger;
+      console.log(hunger);
+    }
+    for (let x = farm.animal.length - 1; x >= 0; x--) {
+      $("#hungerHolder").append("<span id='horse" + x + "Hunger'></span> ");
+
+      farm.removeAnimal(farm.animal[x]);
+      farm.foodRate = 0;
+
+    }
+    for(var a  = 0; a < newHunger.length; a++) {
+      farm.horseMaker(a, newHunger[a]);
+      var b;
+      farm.hungry[a] = b;
     }
   });
 });

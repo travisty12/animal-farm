@@ -12,7 +12,7 @@ export class Animal {
   }
   isHungry() {
     let isHungry = false;
-    if(this.hunger < 5) {
+    if(this.hunger <= 5) {
       isHungry = true;
     }
     return isHungry;
@@ -43,16 +43,16 @@ export class Farm {
   animalFed(amount) {
     this.food -= amount;
   }
-  removeSpan(nth) {
-    $("span:nth-child(" + nth + ")");
-  }
   addAnimal(animal) {
     this.animal.push(animal);
   }
   removeAnimal(i) {
     this.animal.splice(i, 1);
+    this.hungry.splice(i, 1);
     this.food +=10;
+    this.foodRate += 1;
   }
+
   randomEvent() {
     let randomNumber = Math.Floor(Math.random() * 100);
     if(randomNumber >= 90) {
@@ -61,6 +61,7 @@ export class Farm {
       return false;
     }
   }
+
   findAnimal(animal) {
     let length = this.animal.length;
     for(let i = 0; i < length; i++) {
@@ -75,8 +76,8 @@ export class Farm {
     this.food -= amount;
     return (feeder(food));
   }
-  horseMaker(i) {
-    let horse = new Animal("Horse" + i, 10);
+  horseMaker(i, hunger) {
+    let horse = new Animal("Horse" + i, hunger);
     this.addAnimal(horse);
     this.animal[i].setHunger();
     this.foodRate += 2;
@@ -86,15 +87,18 @@ export class Farm {
     for (let i = 0; i < this.animal.length; i++) {
       if (this.animal[i].hunger == 0) {
         if (!this.hungry[i]) {
+          // console.log(this.hungry)
           this.foodRate -= 3;
           this.hungry[i] = true;
           $("#skull").show();
+
         }
         this.animal[i].hunger += 1;
       } else {
         if (this.hungry[i]) {
           this.foodRate += 3;
           this.hungry[i] = false;
+
         }
       }
     }
